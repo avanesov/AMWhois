@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "AM Web WHOIS by ArmCoder",
     "description": "Very easily you can get information about domains in the AM zone",
-    "version": "3.1",
+    "version": "4",
 
     "permissions": [
         "https://www.amnic.net/whois/"

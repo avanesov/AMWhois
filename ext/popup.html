@@ -4,25 +4,54 @@
     <meta charset="utf-8"/>
     <title>AM Web WHOIS by ArmCoder</title>
     <link rel="stylesheet" href="style/main.css" type="text/css"/>
+    <link rel="stylesheet" href="style/bootstrap.min.css" type="text/css"/>
     <link type="text/css" href="style/jquery.jscrollpane.css" rel="stylesheet" media="all" />
 </head>
 <body id="index" class="home">
 <div id="main">
     <img id="loader" src="images/ajax-loader.gif" />
     <header>
-    <p>AM Web WHOIS by <a target="_blank" href="http://www.armcoder.am">ArmCoder</a></p>
+    <p id="title">AM Web WHOIS by <a target="_blank" href="http://www.armcoder.am">ArmCoder</a></p>
     <form id="whoForm">
         <input placeholder="Type the .AM domain name" id="input" type="text">
-        <a href="javascript:void(0)" id="get">Who Is?</a>
+        <a href="javascript:void(0)" id="get" class="btn btn-info btn-lg">Who Is?</a>
     </form>
+
+    <ul class="nav nav-tabs" id="myTab">
+        <li class="active"><a href="#whois">WhoIs</a></li>
+        <!---<li><a href="#topDomains">Top Armenian Domains</a></li>--->
+    </ul>
+
+    <div id="alert" class="alert alert-danger">
+        Data not received or domain is FREE
+    </div>
     </header>
-    <div id="result"></div>
-    <p id="refer">
-        <!--<a target="_blank" href="javascript:window.print()">Print</a> <br />-->
-        More info at. <a target="_blank" href="https://www.amnic.net">amnic.net</a>
-    </p>
+
+
+    <div id="tabWrapper">
+    <div class="tab-content">
+        <div class="tab-pane active" id="whois">
+            <div class="panel-group" id="accordionOne">
+            </div>
+            <p id="refer">
+                <!--<a target="_blank" href="javascript:window.print()">Print</a> <br />-->
+                More info at. <a target="_blank" href="https://www.amnic.net">amnic.net</a>
+            </p>
+        </div>
+        <!--
+        <div class="tab-pane" id="topDomains">
+            <div class="panel-group" id="accordionTwo">
+            </div>
+        </div>
+        -->
+    </div>
+    </div>
+
+
+
     <script src="script/jquery.min.js"></script>
     <script src="script/main.js"></script>
+    <script src="script/bootstrap.min.js"></script>
     <script type="text/javascript" src="script/jquery.mousewheel.js"></script>
     <script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
 </div>
