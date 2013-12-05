@@ -45,23 +45,18 @@
         result = html.filter("ul");
         if (result.length < 1) {
           $("#alert").show(0);
-          $("#tabWrapper").css('margin-top', '160px');
+          return $("#tabWrapper").css('margin-top', '160px');
         } else {
           index = Math.floor(Math.random() * 10000000);
           result = tpl1.replace('{{domain}}', domain).replace('{{info}}', result.html()).replace('{{index}}', index).replace('{{indexLink}}', index).replace('{{id}}', index);
-          $("#accordionOne").prepend(result);
-          $("#accordionOne .panel .panel-collapse").removeClass('in');
-          $("#collapse" + index).addClass('in');
+          return $("#accordionOne").prepend(result);
         }
-        return $("#loader").fadeOut();
       }
     });
+    $("#loader").fadeOut();
     $("#input").val(null);
     $("#refer").show();
-    $(".collapse").collapse();
-    return $(function() {
-      return $("body").jScrollPane();
-    });
+    return $(".collapse").collapse();
   };
 
   _gaq = _gaq || [];
@@ -98,11 +93,10 @@
   jQuery(function($) {
     $(function() {
       var i, topDomains, _results;
-      $("body").jScrollPane();
       topDomains = shuffle(window.topDomains);
       i = 0;
       _results = [];
-      while (i < 9) {
+      while (i < topDomains.length) {
         $("#accordionTwo").prepend("<div class='panel panel-default whoisPanel active'><div class='panel-heading'><h4 class='panel-title'><a target='_blank' href='http://" + topDomains[i].url + "'>" + topDomains[i].url.toUpperCase() + "</a> <span class='info'><a target='_blank' href='mailto:" + topDomains[i].email + "?subject=Buy+domain+with+(AMWEBWhoIs)&body=Hi,+i+am+requsting+price+for:+" + topDomains[i].url.toUpperCase() + "'>Request Price</a></span></h4></div></div>");
         _results.push(i++);
       }

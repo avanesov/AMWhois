@@ -45,16 +45,14 @@ $.getWhoIs = ->
         index = Math.floor(Math.random()*10000000)
         result = tpl1.replace('{{domain}}',domain).replace('{{info}}',result.html()).replace('{{index}}',index).replace('{{indexLink}}',index).replace('{{id}}',index)
         $("#accordionOne").prepend result
-        $("#accordionOne .panel .panel-collapse").removeClass('in')
-        $("#collapse"+index).addClass('in')
-      $("#loader").fadeOut()
+#        $(".collapse-panel").each (index) ->
+#          $(this).collapse "toggle"
+
+  $("#loader").fadeOut()
 
   $("#input").val null
   $("#refer").show()
   $(".collapse").collapse()
-  $ ->
-    $("body").jScrollPane()
-
 _gaq = _gaq or []
 _gaq.push ["_setAccount", "UA-46230009-1"]
 _gaq.push ["_trackPageview"]
@@ -87,11 +85,9 @@ shuffle = (array) ->
 
 jQuery ($) ->
   $ ->
-    $("body").jScrollPane()
-
     topDomains = shuffle(window.topDomains)
     i = 0
-    while i < 9
+    while i < topDomains.length
       $("#accordionTwo").prepend "<div class='panel panel-default whoisPanel active'><div class='panel-heading'><h4 class='panel-title'><a target='_blank' href='http://" + topDomains[i].url + "'>"+topDomains[i].url.toUpperCase()+"</a> <span class='info'><a target='_blank' href='mailto:" + topDomains[i].email + "?subject=Buy+domain+with+(AMWEBWhoIs)&body=Hi,+i+am+requsting+price+for:+"+topDomains[i].url.toUpperCase()+"'>Request Price</a></span></h4></div></div>"
       i++
   $("#get").click (e) ->
