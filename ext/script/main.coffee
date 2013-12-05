@@ -59,9 +59,17 @@ $.getWhoIs = ->
         index = Math.floor(Math.random()*10000000)
         result = tpl1.replace('{{domain}}',domain).replace('{{info}}',result.html()).replace('{{index}}',index).replace('{{indexLink}}',index).replace('{{id}}',index)
         $("#accordionOne").prepend result
+        chrome.storage.local.get null, (res) ->
+          if !res.domainList
+            res = { domainList : [] }
+          res.domainList.push({
+            key: domain,
+            html: result
+          })
+          chrome.storage.local.set res;
+
 
   $("#loader").fadeOut()
-
   $("#input").val null
   $("#refer").show()
   $(".collapse").collapse()
@@ -74,6 +82,12 @@ jQuery ($) ->
     while i < topDomains.length
       $("#accordionTwo").prepend "<div class='panel panel-default whoisPanel active'><div class='panel-heading'><h4 class='panel-title'><a target='_blank' href='http://" + topDomains[i].url + "'>"+topDomains[i].url.toUpperCase()+"</a> <span class='info'><a target='_blank' href='mailto:" + topDomains[i].email + "?subject=Buy+domain+with+(AMWEBWhoIs)&body=Hi,+I+am+requesting+the+price+for:+"+topDomains[i].url.toUpperCase()+"'>Request Price</a></span></h4></div></div>"
       i++
+
+  chrome.storage.local.get  null, (result) ->
+    if result.domainList
+      i = 0;
+      while i < result.domainList.length
+        $("#accordionOne").append result.domainList[i].html
   $("#get").click (e) ->
     e.preventDefault()
     $.getWhoIs()

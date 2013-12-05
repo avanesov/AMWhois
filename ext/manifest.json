@@ -2,10 +2,10 @@
     "manifest_version": 2,
     "name": "AM Web WHOIS by ArmCoder",
     "description": "Get information about domains in the AM zone",
-    "version": "5.1",
+    "version": "5.2",
 
     "permissions": [
-        "https://www.amnic.net/whois/"
+        "https://www.amnic.net/whois/" , "storage"
     ],
     "browser_action": {
         "default_icon": "icons/icon.png",

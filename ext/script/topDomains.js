@@ -37,7 +37,7 @@ window.topDomains = [
     },
 
     {
-        url: 'aviatoms.am',
+        url: 'aviatoms.com',
         email: 'vardan@papikyan.biz'
     },
 
