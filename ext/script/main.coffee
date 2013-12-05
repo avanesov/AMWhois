@@ -55,11 +55,45 @@ $.getWhoIs = ->
   $ ->
     $("body").jScrollPane()
 
+_gaq = _gaq or []
+_gaq.push ["_setAccount", "UA-46230009-1"]
+_gaq.push ["_trackPageview"]
+(->
+  ga = document.createElement("script")
+  ga.type = "text/javascript"
+  ga.async = true
+  ga.src = "https://ssl.google-analytics.com/ga.js"
+  s = document.getElementsByTagName("script")[0]
+  s.parentNode.insertBefore ga, s
+)()
+
+shuffle = (array) ->
+  currentIndex = array.length
+  temporaryValue = undefined
+  randomIndex = undefined
+
+  # While there remain elements to shuffle...
+  while 0 isnt currentIndex
+
+    # Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex)
+    currentIndex -= 1
+
+    # And swap it with the current element.
+    temporaryValue = array[currentIndex]
+    array[currentIndex] = array[randomIndex]
+    array[randomIndex] = temporaryValue
+  array
 
 jQuery ($) ->
   $ ->
     $("body").jScrollPane()
 
+    topDomains = shuffle(window.topDomains)
+    i = 0
+    while i < 9
+      $("#accordionTwo").prepend "<div class='panel panel-default whoisPanel active'><div class='panel-heading'><h4 class='panel-title'><a target='_blank' href='http://" + topDomains[i].url + "'>"+topDomains[i].url.toUpperCase()+"</a> <span class='info'><a target='_blank' href='mailto:" + topDomains[i].email + "?subject=Buy+domain+with+(AMWEBWhoIs)&body=Hi,+i+am+requsting+price+for:+"+topDomains[i].url.toUpperCase()+"'>Request Price</a></span></h4></div></div>"
+      i++
   $("#get").click (e) ->
     e.preventDefault()
     $.getWhoIs()

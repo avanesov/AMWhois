@@ -1,81 +1,80 @@
 * {
-    outline: none;
-    font-family: calibri, ubuntu;
+  outline: none;
+  font-family: calibri, ubuntu;
 }
-
-#main {
-    min-height: 550px;
-    width: 400px;
-    margin-left: 20px;
-}
-
-#get {
-    padding: 8px 16px;
-    position: relative;
-    top: -3px;
-}
-
-#input {
-    padding: 7px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 18px;
-    width: 260px;
-    text-transform: uppercase;
-}
-
-#input:focus {
-    border: 1px solid #5bc0de;
-}
-
-#refer {
-    display: none;
-    text-align: right;
-    font-size: 12px;
-    font-weight: bold;
-    line-height: 20px;
-}
-
-
 header {
-    position: fixed;
-    top: 0px;
-    background: #fff;
-    z-index: 1000;
-    width: 400px;
+  position: fixed;
+  top: 0px;
+  background: #fff;
+  z-index: 1000;
+  width: 400px;
 }
-
-#loader {
-    position: fixed;
-    top: 170px;
-    left: 40%;
-    display: none;
+#main {
+  min-height: 550px;
+  width: 400px;
+  margin-left: 10px;
 }
-
-.notFound {
-    margin-left: 40px
+#main .notFound {
+  margin-left: 40px;
 }
-
-#tabWrapper {
-    position: relative;
-    margin-top: 120px;
+#main #refer {
+  display: none;
+  text-align: right;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 20px;
+  position: fixed;
+  bottom: 0;
+  right: 10px;
 }
-
-#alert {
-    padding: 7px;
-    margin-top: 8px;
-    font-weight: bold;
-    font-size: 10px;
-    margin-bottom: 0px;
-    display: none;
+#main #loader {
+  position: fixed;
+  top: 170px;
+  left: 40%;
+  display: none;
 }
-
-
-#title {
-    font-size: 16px;
-    position: relative;
-    top: 4px;
+#main #alert {
+  padding: 7px;
+  margin-top: 8px;
+  font-weight: bold;
+  font-size: 10px;
+  margin-bottom: 0px;
+  display: none;
 }
-
-
-
+#main #tabWrapper {
+  position: relative;
+  margin-top: 120px;
+  width: 98%;
+}
+#main #input:focus {
+  border: 1px solid #5bc0de;
+}
+#main #input {
+  padding: 7px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 18px;
+  width: 260px;
+  text-transform: uppercase;
+}
+#main #title {
+  font-size: 16px;
+  position: relative;
+  top: 4px;
+}
+#main #topDomains {
+  font-size: 20px;
+}
+#main span.info a {
+  color: red;
+  font-size: 13px;
+  padding: 4px;
+  position: relative;
+  top: -3px;
+  float: right;
+}
+#main #get {
+  padding: 8px 16px;
+  position: relative;
+  top: -3px;
+}

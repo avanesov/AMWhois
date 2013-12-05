@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "AM Web WHOIS by ArmCoder",
     "description": "Very easily you can get information about domains in the AM zone",
-    "version": "4",
+    "version": "5",
 
     "permissions": [
         "https://www.amnic.net/whois/"
@@ -11,6 +11,7 @@
         "default_icon": "icons/icon.png",
         "default_popup": "popup.html"
     },
+    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
     "icons":{
         "512": "icons/icon_512.png"
     }
