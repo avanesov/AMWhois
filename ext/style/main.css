@@ -53,6 +53,7 @@ header {
   font-weight: bold;
   font-size: 10px;
   margin-bottom: 0px;
+  width: 98%;
   display: none;
 }
 #main #tabWrapper {

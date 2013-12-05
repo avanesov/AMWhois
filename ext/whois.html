@@ -12,12 +12,12 @@
     <header>
     <p id="title">AM Web WHOIS by <a target="_blank" href="http://www.armcoder.am">ArmCoder</a></p>
     <form id="whoForm">
-        <input tabindex="0" placeholder="Type the .AM domain name" id="input" type="text">
+        <input tabindex="-1" placeholder="Type the .AM domain name" id="input" type="text">
         <a href="javascript:void(0)" id="get" class="btn btn-info btn-lg">Who Is?</a>
     </form>
 
     <ul class="nav nav-tabs" id="myTab">
-        <li class="active"><a href="#whois">WhoIs</a></li>
+        <li class="active"><a id="whoClick" href="#whois">WhoIs</a></li>
         <li><a href="#topDomains"><img src="images/star.png" height="16" width="16" />Top Domains</a></li>
     </ul>
 

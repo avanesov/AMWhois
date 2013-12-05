@@ -18,13 +18,27 @@ tpl1 = '<div class="panel panel-default whoisPanel active">
                     </div>
         </div>'
 
-rtrim = (str, charlist) ->
-  charlist = (if not charlist then " \\s " else (charlist + "").replace(/([\[\]\(\)\.\?\/\*\{\}\+\$\^\:])/g, "\\$1"))
-  re = new RegExp("[" + charlist + "]+$", "g")
-  (str + "").replace re, ""
+shuffle = (array) ->
+  currentIndex = array.length
+  temporaryValue = undefined
+  randomIndex = undefined
+
+  # While there remain elements to shuffle...
+  while 0 isnt currentIndex
+
+    # Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex)
+    currentIndex -= 1
+
+    # And swap it with the current element.
+    temporaryValue = array[currentIndex]
+    array[currentIndex] = array[randomIndex]
+    array[randomIndex] = temporaryValue
+  array
 
 $.getWhoIs = ->
-  domain = rtrim($("#input").val(), ".am") + ".am"
+  $("#whoClick").click()
+  domain = $("#input").val().replace(".am","") + ".am"
   serviceUrl = "https://www.amnic.net/whois/?domain=" + domain
   $("#loader").fadeIn()
   $("#alert").hide(0)
@@ -45,38 +59,20 @@ $.getWhoIs = ->
         index = Math.floor(Math.random()*10000000)
         result = tpl1.replace('{{domain}}',domain).replace('{{info}}',result.html()).replace('{{index}}',index).replace('{{indexLink}}',index).replace('{{id}}',index)
         $("#accordionOne").prepend result
-#        $(".collapse-panel").each (index) ->
-#          $(this).collapse "toggle"
 
   $("#loader").fadeOut()
 
   $("#input").val null
   $("#refer").show()
   $(".collapse").collapse()
-shuffle = (array) ->
-  currentIndex = array.length
-  temporaryValue = undefined
-  randomIndex = undefined
 
-  # While there remain elements to shuffle...
-  while 0 isnt currentIndex
-
-    # Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex)
-    currentIndex -= 1
-
-    # And swap it with the current element.
-    temporaryValue = array[currentIndex]
-    array[currentIndex] = array[randomIndex]
-    array[randomIndex] = temporaryValue
-  array
 
 jQuery ($) ->
   $ ->
     topDomains = shuffle(window.topDomains)
     i = 0
     while i < topDomains.length
-      $("#accordionTwo").prepend "<div class='panel panel-default whoisPanel active'><div class='panel-heading'><h4 class='panel-title'><a target='_blank' href='http://" + topDomains[i].url + "'>"+topDomains[i].url.toUpperCase()+"</a> <span class='info'><a target='_blank' href='mailto:" + topDomains[i].email + "?subject=Buy+domain+with+(AMWEBWhoIs)&body=Hi,+i+am+requsting+price+for:+"+topDomains[i].url.toUpperCase()+"'>Request Price</a></span></h4></div></div>"
+      $("#accordionTwo").prepend "<div class='panel panel-default whoisPanel active'><div class='panel-heading'><h4 class='panel-title'><a target='_blank' href='http://" + topDomains[i].url + "'>"+topDomains[i].url.toUpperCase()+"</a> <span class='info'><a target='_blank' href='mailto:" + topDomains[i].email + "?subject=Buy+domain+with+(AMWEBWhoIs)&body=Hi,+I+am+requesting+the+price+for:+"+topDomains[i].url.toUpperCase()+"'>Request Price</a></span></h4></div></div>"
       i++
   $("#get").click (e) ->
     e.preventDefault()
