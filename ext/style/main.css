@@ -3,8 +3,9 @@
 }
 ::-webkit-scrollbar-thumb:vertical {
   margin: 5px;
-  background-color: #999;
+  background-color: #39b3d7;
   -webkit-border-radius: 5px;
+  cursor: pointer;
 }
 ::-webkit-scrollbar-button:start:decrement,
 ::-webkit-scrollbar-button:end:increment {
