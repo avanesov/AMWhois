@@ -69,7 +69,7 @@ header {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 17px;
-  width: 320px;
+  width: 260px;
   text-transform: uppercase;
 }
 #main #title {
@@ -92,9 +92,4 @@ header {
   padding: 8px 16px;
   position: relative;
   top: -4px;
-}
-#main .star {
-  position: relative;
-  top: -2px;
-  left: -6px;
 }
