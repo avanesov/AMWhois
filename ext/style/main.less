@@ -15,7 +15,7 @@
 }
 
 * {
-  outline: none;
+  outline: none !important;
   font-family: calibri, ubuntu;
 }
 
@@ -37,7 +37,6 @@ header {
   }
 
   #refer {
-    display: none;
     text-align: right;
     font-size: 12px;
     font-weight: bold;
@@ -76,7 +75,7 @@ header {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 17px;
-    width: 260px;
+    width: 300px;
     text-transform: uppercase;
   }
 
@@ -90,6 +89,10 @@ header {
      font-size: 20px;
   }
 
+  #accordionOne {
+    z-index: 10;
+    position: relative;
+  }
   span.info {
     a {
 

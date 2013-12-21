@@ -12,7 +12,7 @@
   display: block;
 }
 * {
-  outline: none;
+  outline: none !important;
   font-family: calibri, ubuntu;
 }
 header {
@@ -31,7 +31,6 @@ header {
   margin-left: 40px;
 }
 #main #refer {
-  display: none;
   text-align: right;
   font-size: 12px;
   font-weight: bold;
@@ -68,7 +67,7 @@ header {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 17px;
-  width: 260px;
+  width: 300px;
   text-transform: uppercase;
 }
 #main #title {
@@ -78,6 +77,10 @@ header {
 }
 #main #topDomains {
   font-size: 20px;
+}
+#main #accordionOne {
+  z-index: 10;
+  position: relative;
 }
 #main span.info a {
   color: red;
