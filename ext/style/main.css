@@ -90,6 +90,9 @@ header {
   top: -3px;
   float: right;
 }
+#main .panel-title a {
+  text-transform: uppercase;
+}
 #main #get {
   padding: 8px 16px;
   position: relative;
