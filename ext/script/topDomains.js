@@ -1,4 +1,4 @@
-window.topDomains = [
+topDomains = [
 
     {
         url: 'id.am',
